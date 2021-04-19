@@ -53,6 +53,7 @@ public class Main {
                         polynomialList.add(polynomial);//add polynomials to polynomial list
                     }
                 }
+                scanner.close();
             }catch (InvalidPolynomialSyntax err){
                 JOptionPane.showMessageDialog(JOptionPane.getRootFrame(),"Error in polynomial format of file!");
                 return;
