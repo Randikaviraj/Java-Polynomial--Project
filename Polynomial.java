@@ -96,7 +96,7 @@ public class Polynomial implements Iterable<Tuple>, Comparable<Polynomial> {
         ArrayList<Tuple> list =new ArrayList<Tuple>();
         Polynomial.Node temp=this.headNode;
         while (temp!=null) {
-            list.add(new Tuple(temp.getExponent(), temp.getExponent()));
+            list.add(new Tuple(temp.getExponent(), temp.getCoefficient()));
             temp=temp.getNextNode();
         }
         return list.iterator();
