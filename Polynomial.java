@@ -53,13 +53,14 @@ public class Polynomial implements Iterable<Polynomial>, Comparable<Polynomial> 
 
     private Polynomial.Node headNode;
 
-    public Polynomial(String polynomial) {
+    public Polynomial(String polynomial) throws InvalidPolynomialSyntax {
         
         try {
             String[] list = polynomial.split(" ");
 
             if (list.length%2!=0 &&  list.length!=0) {
                 // polynomial string check
+                throw new InvalidPolynomialSyntax("Error in polynomial format");
             }
             this.headNode=new Polynomial.Node(Integer.parseInt(list[1]),Double.parseDouble(list[0]));
             Polynomial.Node tempNode=this.headNode;
@@ -72,6 +73,7 @@ public class Polynomial implements Iterable<Polynomial>, Comparable<Polynomial> 
         } catch (Exception e) {
             //TODO: handle exception
             System.out.println(e);
+            throw new InvalidPolynomialSyntax("Error in polynomial format");
         }
     }
 
