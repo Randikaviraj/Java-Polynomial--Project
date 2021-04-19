@@ -1,3 +1,16 @@
+/**
+ * AUTHOR :
+ * 
+ * PROJECT NAME:
+ * 
+ * DATE :
+ * 
+ * SHORT DISCRIPTION :
+ * 
+ * 
+ * 
+ * 
+ */
 public class InvalidPolynomialSyntax extends Exception {
 
     /**

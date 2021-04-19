@@ -1,3 +1,17 @@
+/**
+ * AUTHOR :
+ * 
+ * PROJECT NAME:
+ * 
+ * DATE :
+ * 
+ * SHORT DISCRIPTION :
+ * 
+ * 
+ * 
+ * 
+ */
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -13,7 +27,7 @@ public class Polynomial implements Iterable<Tuple>, Comparable<Polynomial> {
 
         private int exponent;
         private double coefficient;
-        private Node next;
+        private Node next=null;
         
         public Node(int exponent,double coefficient){
             this.exponent = exponent;
@@ -46,7 +60,6 @@ public class Polynomial implements Iterable<Tuple>, Comparable<Polynomial> {
     private Polynomial.Node headNode;
 
     public Polynomial(String polynomial) throws InvalidPolynomialSyntax {
-        
         try {
             String[] list = polynomial.split(" ");
             
@@ -60,6 +73,7 @@ public class Polynomial implements Iterable<Tuple>, Comparable<Polynomial> {
             Polynomial.Node tempNode=this.headNode;
 
             for (int i = 2; i < list.length; i=i+2) {
+                
                 if (earlyexponent<Integer.parseInt(list[i+1])) {
                     throw new InvalidPolynomialSyntax("Error in polynomial format");
                 }
@@ -67,6 +81,7 @@ public class Polynomial implements Iterable<Tuple>, Comparable<Polynomial> {
                 tempNode.setNextNode(new Polynomial.Node(Integer.parseInt(list[i+1]),Double.parseDouble(list[i])));
                 tempNode=tempNode.getNextNode();
             }
+            
             
         } catch (RuntimeException e) {
             //TODO: handle exception
@@ -126,13 +141,14 @@ public class Polynomial implements Iterable<Tuple>, Comparable<Polynomial> {
         String polynomial="";
         Polynomial.Node temp =this.headNode;
         while (temp.getNextNode()!=null) {
-            if (temp.getCoefficient()!=0) {
+            if (temp.getCoefficient()!=0.0) {
                 if (temp.getExponent()!=1) {
                     polynomial=polynomial+Double.toString(temp.getCoefficient())+"X^"+Integer.toString(temp.getExponent())+"+";
                 }else{
                     polynomial=polynomial+Double.toString(temp.getCoefficient())+"X"+"+";
                 }
             }
+            temp=temp.getNextNode();
         }
 
         if (temp.getExponent()!=0) {

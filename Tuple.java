@@ -1,4 +1,18 @@
- /**
+/**
+ * AUTHOR :
+ * 
+ * PROJECT NAME:
+ * 
+ * DATE :
+ * 
+ * SHORT DISCRIPTION :
+ * 
+ * 
+ * 
+ * 
+ */
+
+/**
      * This class use to store tuplle of values that contains exponent and coefficient of a term
 */
 public class Tuple {
